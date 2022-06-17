@@ -74,13 +74,15 @@ class ViewController: UIViewController {
 
         }
         
+       // print(symbolsArray[0],symbolsArray[1],symbolsArray[2],symbolsArray[3])
+        
         //加法
         if symbolsArray[0]=="+"{
             symbolLabel.text = "+"
             ans = num1+num2
            
         //減法
-        }else if symbolsArray[1]=="−"{
+        }else if symbolsArray[0]=="−"{
             symbolLabel.text = "−"
            
             //避免負數，當數1小於數字2兩者交換
@@ -92,24 +94,23 @@ class ViewController: UIViewController {
             ans = num1-num2
         
         //乘法
-        }else if symbolsArray[2]=="×"{
+        }else if symbolsArray[0]=="×"{
             symbolLabel.text = "×"
             ans = num1*num2
             
         //除法
-        }else if symbolsArray[3]=="÷"{
+        }else if symbolsArray[0]=="÷"{
             symbolLabel.text = "÷"
            
             //為了讓數字相除為整數
             let doublenum = Int.random(in: 1...10)
             num1 = num2*doublenum
             ans = num1/num2
-            
            
         }
         //把正確解答加到options的array中
-        options.append(ans)
-        options.shuffle()
+       options.append(ans)
+       options.shuffle()
         
         //顯示選擇button的選項
         for i in 0...3{
@@ -145,7 +146,7 @@ class ViewController: UIViewController {
             
             resultView.isHidden = false
             score2Label.text = "\(score)"
-            if score == 100{
+            if score >= 90{
                 levelLabel.text = "根本數學小天才！"
             }else if score >= 60 {
                 levelLabel.text = "差一點點了！"
